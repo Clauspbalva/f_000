@@ -1,15 +1,3 @@
-def multiply(x, y):
-    return x * y
-
-test_config = {
-    'function': multiply,
-    'input_names': ['x', 'y'],
-    'tests': [
-        {'id': 1, 'input_values': [1, 2], 'output_expected': 4},
-        {'id': 2, 'input_values': [-1, 3], 'output_expected': -3}
-    ],
-    'print_details': True  
-}
 
 def function_test(test_config):
     tests = []
@@ -31,4 +19,3 @@ def function_test(test_config):
     
     return tests
 
-function_test(test_config)
