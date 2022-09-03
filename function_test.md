@@ -63,6 +63,8 @@ Specification file for `function_test` function.
 <br>
 
 ### 1.6 Outputs
+---
+
 | Output | Description | Type & Domain |
 |---|---|---|
 | `id` | Test ID | Integer <br> `int` |
