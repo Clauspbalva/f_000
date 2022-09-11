@@ -10,6 +10,7 @@ Algorithms and Data Structures practice with Python
 # FUNCTION DECLARATION 
 # --------------------------------------------------------------------------------------------------
 
+
 def function_test(test_config):
     """Description:
             test function, performs the job of testing the functions 
@@ -19,13 +20,20 @@ def function_test(test_config):
             test_config (dict): dictionary with parameters
     """
     tests = []
+    num_precision = 0.5
     
     for test in test_config['tests']:
         output_calculated = test_config['function'](*test['input_values'])
-        if test['output_expected'] != int and test['output_expected'] != float: #Preguntar si no es un numero
-            test_result = 'Passed' if test['output_expected'] == output_calculated else 'Failed'
+        if str(test['output_expected']).isdigit() == True:
+           test_result = 'Passed' if abs(test['output_expected'] - output_calculated) <= num_precision else 'Failed'
+           print('entro_aqui')
         else:
-            test_result = 'Passed' if abs(test['output_expected'] - output_calculated) <= test['num_precision'] else 'Failed'
+            test_result = 'Passed' if test['output_expected'] == output_calculated else 'Failed'
+            print('entroalelse')
+        #if test['output_expected'] != int and test['output_expected'] != float: #Preguntar si no es un numero
+            #test_result = 'Passed' if test['output_expected'] == output_calculated else 'Failed'
+        #else:
+           #test_result = 'Passed' if abs(test['output_expected'] - output_calculated) <= test['num_precision'] else 'Failed'
         tests.append(test)
         tests[-1]['output_calculated'] = output_calculated
         tests[-1]['result'] = test_result
